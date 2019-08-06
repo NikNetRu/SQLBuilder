@@ -29,6 +29,6 @@ class Insert
      */
     public function __call($name, $params) 
     {
-       echo "</br>Данный метод $name не предусмотрен классом INSERT</br>";        
+       echo "Данный метод $name не предусмотрен классом INSERT";        
     }
 }

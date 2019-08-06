@@ -4,10 +4,10 @@
     1) Создать обьект SQLBuilder($host, $login, $password, $database);
             Ввод $host, $login, $password, $database - не обязателен
     2) Применить одну из функций определяющих тип запроса:
-        insert('you_rtable_name');
-        delete('you_rtable_name');
-        select('you_rtable_name');
-        update('you_rtable_name');
+        insert('your_table_name');
+        delete('your_table_name');
+        select('your_table_name');
+        update('your_table_name');
     3) Применить функцию condition;
       ->condoition(array ['your_condition1','your_condition2',..]);
       Обязателен для всех функций определяет условие запроса (например для 

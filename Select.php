@@ -16,7 +16,7 @@ class Select {
     
     function conditionExample(array $condition) 
     {
-        //$slicedCondition = sliceCondition($condition);
+        
         $this->conditions = constructorConditionSel($condition);
     }
     
@@ -58,7 +58,7 @@ class Select {
      */
     public function __call($name, $params) 
     {
-       echo "</br>Данный метод $name не предусмотрен классом Select";
+       echo "Данный метод $name не предусмотрен классом Select";
         
     }
     

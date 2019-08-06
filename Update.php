@@ -44,6 +44,6 @@ class Update {
      */
     public function __call($name, $params)  
     {
-       echo "</br>Данный метод $name не предусмотрен классом UPDATE</br>";        
+       echo "Данный метод $name не предусмотрен классом UPDATE";        
     }
 }

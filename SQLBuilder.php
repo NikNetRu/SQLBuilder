@@ -142,7 +142,8 @@ class SQLBuilder
          if (is_array($this->result)) {
          foreach ($this->result as $row=>$value)
           {  foreach ($value as $row1=>$value1)
-            echo "</br>$row1=>$value1";
+            echo "$row1=>$value1";
+            
           }
          }
     }
@@ -154,12 +155,16 @@ class SQLBuilder
     public function __call($name, $params) 
     {
         if ($this->shemeCall === null){
-             '</br>Инициализируйте команду смотри HELP</br>';
+            PHP_EOL;
+            echo 'Инициализируйте команду смотри HELP</br>';
+            PHP_EOL;
             return;
         }
         
         if (!method_exists($this->shemeCall, $name)) {
-            echo '</br>В рамках класса '. get_class($this->shemeCall).' метод '.$name.' не предусмотрен</br>';
+            PHP_EOL;
+            echo 'В рамках класса '. get_class($this->shemeCall).' метод '.$name.' не предусмотрен';
+            PHP_EOL;
             return;
             } 
        $this->shemeCall->$name($params);
