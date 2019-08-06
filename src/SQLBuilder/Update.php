@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Engine.php';
-
+namespace SQLBuilder;
+require_once "Engine.php";
 class Update {
     private $tablename = null;
     private $conditions = null;
