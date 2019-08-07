@@ -173,9 +173,3 @@ class SQLBuilder
         
     }
 }
-$test = new SQLBuilder();
-$test->insert('users');
-$test->condition(['name=Test','password = 123']);
-$test->setQuerySettings('mysql:host=127.0.0.1','chat','root','');
-echo $test->get();
-$test->executeQuery();
