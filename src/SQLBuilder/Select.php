@@ -48,7 +48,7 @@ class Select {
     
     function getExample() 
     {
-        return "SELECT  $this->conditions FROM $this->tablename $this->where $this->groupBy $this->orderBy $this->conditionsOr";
+        return "SELECT $this->conditions FROM $this->tablename$this->where$this->groupBy $this->orderBy $this->conditionsOr";
     }
     
     

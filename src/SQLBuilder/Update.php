@@ -35,7 +35,7 @@ class Update {
     
     function getExample() 
     {
-        return "UPDATE $this->tablename SET $this->conditions $this->where $this->whereOr";
+        return "UPDATE $this->tablename SET $this->conditions$this->where $this->whereOr";
     }
     
     /*
