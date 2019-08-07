@@ -1,5 +1,5 @@
 <?php
-require 'C:\xampp\htdocs\SQL_Builder\SQLBuilder\vendor\autoload.php';
+require '..\\vendor\autoload.php';
 use PHPUnit\Framework\TestCase;
 class SQLBuilderTest extends TestCase
 {
