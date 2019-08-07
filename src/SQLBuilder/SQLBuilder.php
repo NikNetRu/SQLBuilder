@@ -1,5 +1,6 @@
 <?php
 namespace SQLBuilder;
+use PDO;
 /*
  * Фраза запроса комманда - имя таблицы/или где выполнять запрос - условие - постусловие
  */
@@ -29,7 +30,7 @@ class SQLBuilder
         $this->database = $database;
     }
     
-    function setQuerySettings ($host, $login, $password, $database)
+    function setQuerySettings ($host, $database, $login, $password)
     {
         $this->host = $host;
         $this->login = $login;
@@ -172,3 +173,9 @@ class SQLBuilder
         
     }
 }
+$test = new SQLBuilder();
+$test->insert('users');
+$test->condition(['name=Test','password = 123']);
+$test->setQuerySettings('mysql:host=127.0.0.1','chat','root','');
+echo $test->get();
+$test->executeQuery();
