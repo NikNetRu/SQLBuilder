@@ -10,7 +10,7 @@ class SQLBuilderTest extends TestCase
         $result->insert('MyTable');
         $result->condition(['name = Andrey','age = 28', 'sex = male']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
         
         //Негативный тесткейс
         $expectedresult = "INSERT INTO MyTable222 (125,0,) VALUES ('','28','male')";
@@ -18,7 +18,7 @@ class SQLBuilderTest extends TestCase
         $result->insert('MyTable222');
         $result->condition(['125 = <<','0 = 28', '<> = male']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
     }
 
     function testDelete ()
@@ -30,7 +30,7 @@ class SQLBuilderTest extends TestCase
         $result->condition(['name = Andrey','age > 28', 'sex != male']);
         $result->whereOr(['colors != blue', 'flowers != rose']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
 
         //Негативный тесткейс
         $expectedresult = "DELETE FROM MyTable WHERE name=<<'' AND 0='28' AND !='male'";
@@ -38,7 +38,7 @@ class SQLBuilderTest extends TestCase
         $result->delete('MyTable');
         $result->condition(['name =<<','0 = 28', '<> != male']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
     }
 
     function testSelect ()
@@ -53,7 +53,7 @@ class SQLBuilderTest extends TestCase
         $result->groupBy(['name, age','family']);
         $result->get();
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
 
         //Негативный тесткейс
         $expectedresult = "SELECT email, email, emma,, FROM MyTable";
@@ -62,7 +62,7 @@ class SQLBuilderTest extends TestCase
         $result->select('MyTable');
         $result->condition(['email, email, emma,,']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
 
     }
 
@@ -75,7 +75,7 @@ class SQLBuilderTest extends TestCase
         $result->condition(['name=error37']);
         $result->where(['name = Andrey','age > 28', 'sex != male']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
 
         //Негативный тесткейс
         $expectedresult = "UPDATE table SET cash='99'";
@@ -83,6 +83,6 @@ class SQLBuilderTest extends TestCase
         $result->update('table');
         $result->condition(['cash = 99']);
         $query = $result->get();
-        $query->assertContains($expectedresult);
+        $this->assertTrue($expectedresult == $query);
     }
 }
